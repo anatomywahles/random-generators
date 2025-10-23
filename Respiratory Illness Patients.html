@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual Patient Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        button {
+            background-color: #add8e6;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Virtual Patient Simulation</h2>
+    <button onclick="generatePatient()">Access Patient Data</button>
+    <table id="patientTable">
+        <tr>
+            <th>Characteristic</th>
+            <th>Patient's Information</th>
+        </tr>
+        <tr>
+            <td>Patient Age</td>
+            <td id="age"></td>
+        </tr>
+        <tr>
+            <td>Pertinent Medical History</td>
+            <td id="history"></td>
+        </tr>
+        <tr>
+            <td>Race / Ethnicity</td>
+            <td id="ethnicity"></td>
+        </tr>
+        <tr>
+            <td>Health Insurance Information</td>
+            <td id="insurance"></td>
+        </tr>
+    </table>
+
+    <script>
+        const ages = ["6 months old", "8 years old", "22 years old", "45 years old", "88 years old"];
+        const histories = ["Asthma", "Diabetes", "Hypertension", "Premature Birth", "Smoker / Lives with smokers"];
+        const ethnicities = ["Black", "Asian", "Native American", "Hispanic", "White"];
+        const insurances = [
+            "Patient has health insurance & receives regular care",
+            "Patient has health insurance & does not receive regular care",
+            "Patient does not have health insurance & does not receive regular care"
+        ];
+
+        function getRandomItem(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function generatePatient() {
+            document.getElementById("age").innerText = getRandomItem(ages);
+            document.getElementById("history").innerText = getRandomItem(histories);
+            document.getElementById("ethnicity").innerText = getRandomItem(ethnicities);
+            document.getElementById("insurance").innerText = getRandomItem(insurances);
+        }
+    </script>
+</body>
+</html>
